@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta name="robots" content="INDEX/FOLLOW" />
+    <meta name="author" content="iand@InternetAlchemy.org" />
+
+    
+    <meta name="copyright" content="Copyright (c) 1999-2002 Ian Davis" />
+    <meta name="HandheldFriendly" content="True" />
+    <style type="text/css" media="screen">@import "/screen.css";</style>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://InternetAlchemy.org/index.rss" />
+		<title>BIO: A vocabulary for biographical information</title>
+    <meta name="description" content="/vocab/bio/0.1/20030307.html" />
+    <meta name="keywords" content="internet,alchemy,weblog,rss,ocs,technology,new,tech news,research,search,calaba,ian,davis,ian davis,xml,programming" />
+    </head>
+
+    <body id="body">
+     <h1>Internet Alchemy Weblog</h1>
+     <div class="content">
+				<h3>BIO: A vocabulary for biographical information</h3>
+<div class="posting">
+    <dl>
+      <dt>This Version:</dt>
+      <dd><a href="http://purl.org/vocab/bio/0.1/">v0.1 (7 March 2003)</a></dd>
+
+      <dt>Latest Version:</dt>
+      <dd><a href="http://purl.org/vocab/bio/">http://purl.org/vocab/bio/</a></dd>
+
+      <dt>Previous Version:</dt>
+      <dd>None</dd>
+      
+      <dt>Status:</dt>
+      <dd>Experimental draft to gather feedback and comment</dd>
+      
+      <dt>Editor:</dt>
+      <dd>Ian Davis &lt;iand@internetalchemy.org&gt;</dd>
+      
+      <dt>Authors:</dt>
+      <dd>Ian Davis &lt;iand@internetalchemy.org&gt;, David Galbraith &lt;david@davidgalbraith.org&gt;</dd>      
+      
+    </dl>
+    
+    <p>This document contains embedded XML/RDF statements defining and describing a vocabulary for representing biographical information.</p>
+    
+    <h2 id="introduction">Introduction</h2>
+    <p>This document describes a vocabulary for describing biographical information about people, both living and dead. 
+    It has been designed to be compatible with both RDF and non-RDF XML formats such as FOAF, RSS 1.0 and RSS 2.0. It contains
+    terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information.</p>
+
+    
+    <h2 id="changes">Changes From Previous Version</h2>
+    <p>None, this is the first version.</p>
+    
+    <h2 id="namespace">Namespace</h2>
+    <p>The namespace for the BIO vocabulary is <code>http://purl.org/vocab/bio/0.1/</code></p>
+    
+    
+    <h2 id="classes">Vocabulary Classes</h2>
+    
+    <h3>Event</h3>
+    <p>This class represents a general event, i.e. something that the person participated in.</p>
+    
+    <h3>Birth</h3>
+    <p>This class represents a birth event.</p>
+
+    <h3>Marriage</h3>
+    <p>This class represents a marriage event.</p>
+
+    <h3>Death</h3>
+    <p>This class represents a death event.</p>
+    
+    
+    <h2 id="properties">Vocabulary Properties</h2>
+    
+    <h3>olb</h3>
+    <p>This property contains a one-line biography of the person.</p>
+    
+    <h3>date</h3>
+    <p>This property represents the date of an Event. The date should be formatted as specified in <a href="ref-ISO8601">ISO8601</a>.
+    For example: 2003-03-15 corresponds to the 15th March 2003, and 2003-03-15T13:21-05:00 corresponds to 15th March 2003, 8:21 am, US Eastern Standard Time.
+    </p>
+    
+    <h3>place</h3>
+    <p>This property represents the place at which an Event happened. This can be a textual description of the place.</p>
+    
+    <h3>event</h3>
+    <p>This property represents an event associated with the person. This should contain an element that is a subclass of Event.</p>
+    
+    
+
+    <h2 id="examples">Examples</h2>
+    
+    <h3 id="examples-foaf">Using With FOAF</h3>
+    <p>The BIO vocabulary simply slots into standard <a href="ref-FOAF">FOAF</a> documents:</p>
+    
+    <pre>
+<code>  
+&lt;rdf:RDF
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;foaf:Person rdf:ID="ian"&gt;
+    &lt;foaf:name&gt;Ian Davis&lt;/foaf:name&gt;
+    &lt;foaf:title&gt;Mr&lt;/foaf:title&gt;
+    &lt;foaf:firstName&gt;Ian&lt;/foaf:firstName&gt;
+    &lt;foaf:surname&gt;Davis&lt;/foaf:surname&gt;
+    
+    &lt;bio:olb&gt;
+        British; software developer; former CTO of Calaba; 
+        author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio.olb&gt;
+  
+    &lt;bio:event&gt;
+      &lt;bio:Birth&gt;
+        &lt;bio:date&gt;1970-06-15&lt;/bio:date&gt;
+        &lt;bio:place&gt;Brentwood, Essex, United Kingdom&lt;/bio:place&gt;
+      &lt;/bio:Birth&gt;
+    &lt;bio:event&gt;
+  
+    &lt;bio:event&gt;
+      &lt;bio:Marriage&gt;
+        &lt;bio:date&gt;1995-08-04&lt;/bio:date&gt;
+        &lt;bio:place&gt;
+          Northampton Register Office, 
+          Northampton, Northamptonshire, United Kingdom
+        &lt;/bio:place&gt;
+      &lt;/bio:Marriage&gt;
+    &lt;bio:event&gt;
+  &lt;/foaf:Person&gt;
+&lt;/rdf:RDF&gt; 
+</code>
+    </pre>  
+    
+    <h3 id="examples-rss10">Using With RSS 1.0</h3>
+    <p>There are a couple of ways to use the BIO vocabulary with <a href="ref-RSS10">RSS 1.0</a>. The first is simply to
+    include the <code>olb</code> property:</p>
+    <pre>
+&lt;rdf:RDF 
+      xmlns="http://purl.org/rss/1.0/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;channel rdf:about="http://internetalchemy.org/"&gt;
+    &lt;title&gt;Internet Alchemy&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Digital explorations and experiments&lt;/description&gt;
+    &lt;bio:olb&gt;
+        British; software developer; former CTO of Calaba; 
+        author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio.olb&gt;
+  &lt;/channel&gt;    
+&lt;/rdf:RDF&gt;     
+    
+    </pre>
+    <p>The second is to include a snippet of FOAF in a dc:creator property:</p>
+    <pre>
+&lt;rdf:RDF 
+      xmlns="http://purl.org/rss/1.0/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;channel rdf:about="http://internetalchemy.org/"&gt;
+    &lt;title&gt;Internet Alchemy&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Digital explorations and experiments&lt;/description&gt;
+    &lt;dc:creator&gt;
+      &lt;foaf:Person&gt;
+        &lt;foaf:name&gt;Ian Davis&lt;/foaf:name&gt;
+        &lt;bio:olb&gt;
+            British; software developer; former CTO of Calaba; 
+            author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+        &lt;/bio.olb&gt;
+        &lt;foaf:mbox_sha1sum rdf:value="69e31bbcf58d432950127593e292a55975bc55fd" /&gt;
+        &lt;rdfs:seeAlso rdf:resource="http://internetalchemy.org/iand/foaf.rdf" /&gt;
+      &lt;/foaf:Person&gt;
+    &lt;/dc:creator&gt;
+  &lt;/channel&gt;    
+&lt;/rdf:RDF&gt;  
+    
+    </pre>
+    
+    
+    
+    
+    
+    <h3 id="examples-rss20">Using with RSS 2.0</h3>
+    <p>The BIO vocabulary can be used with <a href="ref-RSS20">RSS 2.0</a> if care is taken to avoid any specific RDF extensions. This essentially
+    means that the <code>date</code> and <code>place</code> properties must contain only plain text. The most common
+    use, however, will be the addition of the <code>olb</code> tag:</p>
+    
+    <pre>
+<code>
+&lt;rss version="2.0" xmlns:bio="http://purl.org/vocab/bio/0.1/"&gt;
+	&lt;channel&gt;
+    &lt;title&gt;Ian's Channel&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Ian's weblog&lt;/description&gt;
+    &lt;bio:olb&gt;
+      British; software developer; former CTO of Calaba; 
+      author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio:olb&gt;
+    &lt;item&gt;
+      &lt;title&gt;Lack of Imagination&lt;/title&gt;
+      &lt;description&gt;Here's an RSS item&lt;/description&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</code>    
+    
+    
+    </pre>
+    
+        
+    <h3 id="examples-html">Using with HTML</h3>
+    <p>The <code>olb</code> property can be embedded within HTML using <code>meta</code> tags:</p>
+    
+    <pre>
+<code>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Ian's home page&lt;/title&gt;
+    &lt;meta name="bio.olb" content="British; software developer; former CTO of Calaba; author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys." /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Ian's home page&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;    
+</code>
+    </pre>
+
+    <h2 id="schema">RDF Schema</h2>
+    <p>The RDF schema is also embedded in the source of this document.</p>    
+    
+    
+    <pre>
+<code>
+&lt;rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/"&gt;
+
+
+  &lt;owl:Ontology rdf:about="http://purl.org/vocab/bio/0.1/"
+                dc:title="Biographical information vocabulary"
+                dc:description="A vocabulary for biographical information, described using W3C RDF Schema and the Web Ontology Language."
+                dc:date="2003-03-15" &gt;
+    &lt;owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema"/&gt;
+    &lt;owl:imports rdf:resource="http://www.w3.org/2002/07/owl"/&gt;
+    &lt;owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/&gt;
+  &lt;/owl:Ontology&gt;
+  
+  
+  &lt;rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Event" 
+              rdfs:label="Event"
+              rdfs:comment="A general event, i.e. something that the person participated in."&gt;
+
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+  &lt;/rdfs:Class&gt;
+
+
+  &lt;rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Birth" 
+              rdfs:label="Birth"
+              rdfs:comment="A birth event."&gt;
+
+    &lt;rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+  &lt;/rdfs:Class&gt;
+
+  &lt;rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Marriage" 
+              rdfs:label="Marriage"
+              rdfs:comment="A marriage event."&gt;
+
+    &lt;rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+  &lt;/rdfs:Class&gt;
+
+  &lt;rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Death" 
+              rdfs:label="Death"
+              rdfs:comment="A death event."&gt;
+
+    &lt;rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+  &lt;/rdfs:Class&gt;
+
+
+  &lt;rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/olb" 
+                rdfs:label="One-line bio"
+                rdfs:comment="A one-line biography of the person."&gt;
+    
+    &lt;rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/&gt;
+    &lt;rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+
+  &lt;/rdf:Property&gt;
+
+  &lt;rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/date" 
+                rdfs:label="Date"
+                rdfs:comment="The date of an event."&gt;
+    
+    &lt;rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+
+  &lt;/rdf:Property&gt;
+
+
+  &lt;rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/place" 
+                rdfs:label="Place"
+                rdfs:comment="The place of an event."&gt;
+    
+    &lt;rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+
+  &lt;/rdf:Property&gt;
+
+  &lt;rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/event" 
+                rdfs:label="Event"
+                rdfs:comment="An event associated with a person."&gt;
+    
+    &lt;rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/&gt;
+    &lt;rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/&gt;
+
+  &lt;/rdf:Property&gt;
+
+
+&lt;/rdf:RDF&gt;
+  
+</code>
+    </pre>
+    
+    
+    
+    
+    <h2 id="references">References</h2>
+    <p id="ref-FOAF">
+      <strong>[FOAF]</strong><br /> 
+      Dan Brickley, Libby Miller, 2003, FOAF: the 'friend of a friend' vocabulary
+      <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+    </p>
+
+
+    <p id="ref-ISO8601">
+      <strong>[ISO8601]</strong><br /> 
+      M. Wolf and C. Wicksteed, 1997, Date and Time Formats.
+      <a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a>
+    </p>
+    
+    <p id="ref-RSS10">
+      <strong>[RSS10]</strong><br /> 
+      R. Dornfest ed., 2000, RSS 1.0.
+      <a href="http://purl.org/rss/1.0/">http://purl.org/rss/1.0/</a>
+    </p>
+    
+    <p id="ref-RSS20">
+      <strong>[RSS20]</strong><br /> 
+      Dave Winer, 2002, RSS 2.0.
+      <a href="http://backend.userland.com/rss">http://backend.userland.com/rss</a>
+    </p>    
+    
+    
+    
+<rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <owl:Ontology rdf:about="http://purl.org/vocab/bio/0.1/"
+                dc:title="Biographical information vocabulary"
+                dc:description="A vocabulary for biographical information, described using W3C RDF Schema and the Web Ontology Language."
+                dc:date="2003-03-15" >
+    <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema"/>
+    <owl:imports rdf:resource="http://www.w3.org/2002/07/owl"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+  </owl:Ontology>
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Event" 
+              rdfs:label="Event"
+              rdfs:comment="A general event, i.e. something that the person participated in.">
+
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Birth" 
+              rdfs:label="Birth"
+              rdfs:comment="A birth event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Marriage" 
+              rdfs:label="Marriage"
+              rdfs:comment="A marriage event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Death" 
+              rdfs:label="Death"
+              rdfs:comment="A death event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/olb" 
+                rdfs:label="One-line bio"
+                rdfs:comment="A one-line biography of the person.">
+    
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/date" 
+                rdfs:label="Date"
+                rdfs:comment="The date of an event.">
+    
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/place" 
+                rdfs:label="Place"
+                rdfs:comment="The place of an event.">
+    
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/event" 
+                rdfs:label="Event"
+                rdfs:comment="An event associated with a person.">
+    
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+
+</rdf:RDF>
+
+</div>
+
+    </div>
+
+    <div id="leftnav">
+      <h3>bio</h3>
+        <p>
+          <small>British; software developer; former CTO of Calaba; author of <a href="/ocs/">OCS</a>; co-author of <a href="/rss/">RSS 1.0</a>; developer of <a href="http://myRSS.com">myRSS</a> and <a href="http://www.innovateer.com/products/pepys/">Pepys</a>.</small>
+         </p>
+      <h3>navigation</h3>
+      <p>
+        <small>
+          <a href="/" title="Internet Alchemy home page">home</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="http://www.topica.com/lists/alchemy/subscribe" title="Join the Internet Alchemy Discussion List">subscribe</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="/about.html" title="About Internet Alchemy">about</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="/xLinkage.html" title="Cross Linkage">xLinkage</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="/referers.html" title="Top Referring Urls">referers</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="/prospecting.html">prospecting</a>
+        </small>
+        <br class="nl" />
+        <small>
+          <a href="/news.html">other news</a>
+        </small>
+
+<br class="nl" />
+      </p>
+			<h3>search</h3>
+			<p>
+				<small>
+<form method="get" action="/cgi-bin/mt-search.cgi">
+<input id="search" name="search" size="20" /><input type="submit" value="Search" />
+</form>
+</small>
+</p>
+
+			
+			<h3>microsites</h3>
+			<p>
+				<small>
+					<a href="/ocs/" title="Open Content Syndication">OCS</a>
+				</small>
+				<br class="nl" />
+				<small>
+					<a href="/rss/" title="Rich Site Summary">RSS</a>
+				</small>
+				<br class="nl" />
+				<small>
+					<a href="/foaf/" title="Friend of a Friend">FOAF</a>
+				</small>
+				<br class="nl" />				<small>
+					<a href="/wap/">WAP</a>
+				</small>
+				<br class="nl" />
+				<small>
+					<a href="/usenet/">Usenet</a>
+				</small>
+				<br class="nl" />
+			</p>
+			
+
+    <h3>colophon</h3>
+      <p>
+        <small>Copyright 1999-2002 <a href="/iand/">Ian Davis</a>. <a href="/iand/foaf.rdf"><img src="/2002/11/foafTiny.gif" width="26" height="14" alt="My FOAF File" /></a></small>
+        <br class="nl" />
+        <small><a href="http://www.movabletype.org" title="Movable Type: Personal Publishing software">Powered by Moveable Type</a></small>
+        <br class="nl" />
+      </p>
+    </div>
+  </body>
+</html>

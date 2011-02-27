@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Using with RSS 1.0</title>
+	</head>
+	<body>
+    <p>There are a couple of ways to use the BIO vocabulary with <a href="http://purl.org/rss/1.0/">RSS 1.0</a>. The first is simply to
+    include the <code>olb</code> property:</p>
+    <pre>
+&lt;rdf:RDF 
+      xmlns="http://purl.org/rss/1.0/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;channel rdf:about="http://internetalchemy.org/"&gt;
+    &lt;title&gt;Internet Alchemy&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Digital explorations and experiments&lt;/description&gt;
+    &lt;bio:olb&gt;
+        British; software developer; former CTO of Calaba; 
+        author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio.olb&gt;
+  &lt;/channel&gt;    
+&lt;/rdf:RDF&gt;     
+    
+    </pre>
+
+
+    <p>For a channel that is an aggregate of different writers it could be useful
+    to include biographical info for each item:</p>
+    <pre>
+&lt;rdf:RDF 
+      xmlns="http://purl.org/rss/1.0/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;channel rdf:about="http://internetalchemy.org/"&gt;
+    &lt;title&gt;Internet Alchemy&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Digital explorations and experiments&lt;/description&gt;
+    &lt;items&gt;
+      &lt;rdf:Seq&gt;
+        &lt;rdf:li rdf:resource="http://www.example.com/item1.html" /&gt;
+        &lt;rdf:li rdf:resource="http://www.example.com/item2.html" /&gt;
+      &lt;/rdf:Seq&gt;
+    &lt;/items&gt;
+    
+  &lt;/channel&gt;    
+  &lt;item rdf:about="http://www.example.com/item1.html"&gt;
+    &lt;title&gt;This was written by Ian&lt;/title&gt;
+    &lt;link&gt;http://www.example.com/item1.html&lt;/link&gt;
+    &lt;bio:olb&gt;
+        British; software developer; former CTO of Calaba; 
+        author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio.olb&gt;
+  &lt;/item&gt;
+  &lt;item rdf:about="http://www.example.com/item2.html"&gt;
+    &lt;title&gt;This was written by Dave&lt;/title&gt;
+    &lt;link&gt;http://www.example.com/item1.html&lt;/link&gt;
+    &lt;bio:olb&gt;
+        Scottish, based in San Francisco, former architect at Foster and 
+        partners, co founder: Moreover, co founder: Origins.net, 
+        co author RSS 1.0
+    &lt;/bio.olb&gt;
+  &lt;/item&gt;
+
+
+&lt;/rdf:RDF&gt;     
+    
+    </pre>
+
+    <p>Another way is to include a snippet of FOAF in a dc:creator property:</p>
+
+    <pre>
+&lt;rdf:RDF 
+      xmlns="http://purl.org/rss/1.0/"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:bio="http://purl.org/vocab/bio/0.1/"
+      &gt;
+
+  &lt;channel rdf:about="http://internetalchemy.org/"&gt;
+    &lt;title&gt;Internet Alchemy&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Digital explorations and experiments&lt;/description&gt;
+    &lt;dc:creator&gt;
+      &lt;foaf:Person&gt;
+        &lt;foaf:name&gt;Ian Davis&lt;/foaf:name&gt;
+        &lt;bio:olb&gt;
+            British; software developer; former CTO of Calaba; 
+            author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+        &lt;/bio.olb&gt;
+        &lt;foaf:mbox_sha1sum rdf:value="69e31bbcf58d432950127593e292a55975bc55fd" /&gt;
+        &lt;rdfs:seeAlso rdf:resource="http://internetalchemy.org/iand/foaf.rdf" /&gt;
+      &lt;/foaf:Person&gt;
+    &lt;/dc:creator&gt;
+  &lt;/channel&gt;    
+&lt;/rdf:RDF&gt;  
+    
+    </pre>
+    
+	</body>
+</html>

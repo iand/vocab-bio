@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Using with RSS 2.0</title>
+	</head>
+	<body>
+    <p>The BIO vocabulary can be used with <a href="http://backend.userland.com/rss">RSS 2.0</a> if care is taken to avoid any specific RDF extensions. This essentially
+    means that the <code>date</code> and <code>place</code> properties must contain only plain text. The most common
+    use, however, will be the addition of the <code>olb</code> tag:</p>
+    
+    <pre>
+<code>
+&lt;rss version="2.0" xmlns:bio="http://purl.org/vocab/bio/0.1/"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;Ian's Channel&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Ian's weblog&lt;/description&gt;
+    &lt;bio:olb&gt;
+      British; software developer; former CTO of Calaba; 
+      author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+    &lt;/bio:olb&gt;
+    &lt;item&gt;
+      &lt;title&gt;Lack of Imagination&lt;/title&gt;
+      &lt;description&gt;Here's an RSS item&lt;/description&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</code>    
+    
+    
+    </pre>
+    
+    <p>It could also be useful to add the bio information at the item level:</p>
+    <pre>
+<code>
+&lt;rss version="2.0" xmlns:bio="http://purl.org/vocab/bio/0.1/"&gt;
+  &lt;channel&gt;
+    &lt;title&gt;Ian's Channel&lt;/title&gt;
+    &lt;link&gt;http://internetalchemy.org/&lt;/link&gt;
+    &lt;description&gt;Ian's weblog&lt;/description&gt;
+    &lt;item&gt;
+      &lt;title&gt;Lack of Imagination&lt;/title&gt;
+      &lt;description&gt;Here's an RSS item&lt;/description&gt;
+      &lt;bio:olb&gt;
+        British; software developer; former CTO of Calaba; 
+        author of OCS; co-author of RSS 1.0; developer of myRSS and Pepys.
+      &lt;/bio:olb&gt;
+    &lt;/item&gt;
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</code>        
+    </pre>
+	</body>
+</html>

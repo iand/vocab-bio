@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:bio="http://purl.org/vocab/bio/0.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:vann="http://purl.org/vocab/vann/" xmlns:dcterm="http://purl.org/dc/terms/" xmlns:cc="http://web.resource.org/cc/">
+  <owl:Ontology rdf:about="http://purl.org/vocab/bio/0.1" dc:title="BIO: A vocabulary for biographical information" dc:date="2004-03-05">
+    <dc:description xml:lang="en">This document describes a vocabulary for describing biographical information about people, both living and dead. It has been designed to be compatible with both RDF and non-RDF XML formats such as FOAF, RSS 1.0 and RSS 2.0. It contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information.</dc:description>
+    <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema"/>
+    <owl:imports rdf:resource="http://www.w3.org/2002/07/owl"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    <dc:identifier>http://purl.org/vocab/bio/0.1/bio-vocab-20040305</dc:identifier>
+    <dcterm:isVersionOf rdf:resource="http://purl.org/vocab/bio/"/>
+    <dcterm:replaces rdf:resource="http://purl.org/vocab/bio/0.1/bio-vocab-20030728"/>
+    <dc:contributor>Ian Davis</dc:contributor>
+    <dc:contributor>David Galbraith</dc:contributor>
+    <dc:rights>Copyright © 2002-2004 Ian Davis and David Galbraith</dc:rights>
+    <vann:preferredNamespaceUri>http://purl.org/vocab/bio/0.1/</vann:preferredNamespaceUri>
+    <vann:preferredNamespacePrefix>bio</vann:preferredNamespacePrefix>
+    <vann:changes rdf:resource="http://purl.org/vocab/bio/0.1/bio-changes-20040305.html"/>
+    <vann:example rdf:resource="http://purl.org/vocab/bio/0.1/bio-example-foaf-20040303.html" dc:title="Using With FOAF"/>
+    <vann:example rdf:resource="http://purl.org/vocab/bio/0.1/bio-example-rss10-20040303.html" dc:title="Using With RSS 1.0"/>
+    <vann:example rdf:resource="http://purl.org/vocab/bio/0.1/bio-example-rss20-20040303.html" dc:title="Using With RSS 2.0"/>
+    <vann:example rdf:resource="http://purl.org/vocab/bio/0.1/bio-example-html-20040303.html" dc:title="Using With HTML"/>
+    <dcterm:hasFormat>
+      <rdf:Description rdf:about="http://purl.org/vocab/bio/0.1/bio-vocab-20040305.html">
+        <dc:format>
+          <dcterm:IMT>
+            <rdf:value>text/html</rdf:value>
+            <rdfs:label xml:lang="en">HTML</rdfs:label>
+          </dcterm:IMT>
+        </dc:format>
+      </rdf:Description>
+    </dcterm:hasFormat>
+    <dcterm:hasFormat>
+      <rdf:Description rdf:about="http://purl.org/vocab/bio/0.1/bio-vocab-20040305.rdf">
+        <dc:format>
+          <dcterm:IMT>
+            <rdf:value>application/rdf+xml</rdf:value>
+            <rdfs:label xml:lang="en">RDF</rdfs:label>
+          </dcterm:IMT>
+        </dc:format>
+      </rdf:Description>
+    </dcterm:hasFormat>
+  </owl:Ontology>
+  <cc:Work rdf:about="">
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by/1.0/"/>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/Text"/>
+  </cc:Work>
+  <cc:License rdf:about="http://creativecommons.org/licenses/by/1.0/">
+    <cc:permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <cc:permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <cc:requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <cc:requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <cc:permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </cc:License>
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Event">
+    <rdfs:label xml:lang="en">Event</rdfs:label>
+    <rdfs:comment xml:lang="en">A general event, i.e. something that the person participated in.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Birth">
+    <rdfs:label xml:lang="en">Birth</rdfs:label>
+    <rdfs:comment xml:lang="en">A birth event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Marriage">
+    <rdfs:label xml:lang="en">Marriage</rdfs:label>
+    <rdfs:comment xml:lang="en">A marriage event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Death">
+    <rdfs:label xml:lang="en">Death</rdfs:label>
+    <rdfs:comment xml:lang="en">A death event.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/olb">
+    <rdfs:label xml:lang="en">One-line bio</rdfs:label>
+    <rdfs:comment xml:lang="en">A one-line biography of the person.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/keywords">
+    <rdfs:label xml:lang="en">Key words</rdfs:label>
+    <rdfs:comment xml:lang="en">A comma delimited list of key words that describe this person.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/date">
+    <rdfs:label xml:lang="en">Date</rdfs:label>
+    <rdfs:comment xml:lang="en">The date of an event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <vann:usageNote rdf:resource="http://purl.org/vocab/bio/0.1/date-usage-20040303.html"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/place">
+    <rdfs:label xml:lang="en">Place</rdfs:label>
+    <rdfs:comment xml:lang="en">The place of an event.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/event">
+    <rdfs:label xml:lang="en">Event</rdfs:label>
+    <rdfs:comment xml:lang="en">An event associated with a person.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdf:Property>
+</rdf:RDF>

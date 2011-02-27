@@ -1,0 +1,93 @@
+<rdf:RDF 
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:bio="http://purl.org/vocab/bio/0.1/" 
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+
+  <owl:Ontology rdf:about="http://purl.org/vocab/bio/0.1/"
+                dc:title="Biographical information vocabulary"
+                dc:description="A vocabulary for biographical information, described using W3C RDF Schema and the Web Ontology Language."
+                dc:date="2003-03-15" >
+    <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema"/>
+    <owl:imports rdf:resource="http://www.w3.org/2002/07/owl"/>
+    <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+  </owl:Ontology>
+  
+  
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Event" 
+              rdfs:label="Event"
+              rdfs:comment="A general event, i.e. something that the person participated in.">
+
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Birth" 
+              rdfs:label="Birth"
+              rdfs:comment="A birth event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Marriage" 
+              rdfs:label="Marriage"
+              rdfs:comment="A marriage event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/vocab/bio/0.1/Death" 
+              rdfs:label="Death"
+              rdfs:comment="A death event.">
+
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+  </rdfs:Class>
+
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/olb" 
+                rdfs:label="One-line bio"
+                rdfs:comment="A one-line biography of the person.">
+    
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/date" 
+                rdfs:label="Date"
+                rdfs:comment="The date of an event.">
+    
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/date"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/place" 
+                rdfs:label="Place"
+                rdfs:comment="The place of an event.">
+    
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/event" 
+                rdfs:label="Event"
+                rdfs:comment="An event associated with a person.">
+    
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+
+  </rdf:Property>
+
+
+</rdf:RDF>
