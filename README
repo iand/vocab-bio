@@ -1,0 +1,9 @@
+This project contains the source schema for the RDF Schema at http://vocab.org/bio/0.1/
+
+I am sharing the schema in github so others can contribute edits and improvements. It is an experiment to see how well a service like github can work for collaboratively managing schemas.
+
+To edit the schema, clone the repository, make your changes, check to make sure your change results in valid RDF (and says what you think you're saying) using a tool like rapper (http://librdf.org/raptor/rapper.html).
+
+If you are satisfied with your edits, send me a pull request (http://help.github.com/pull-requests/) I'll consider merging and publishing to vocab.org
+
+(Inspiration for this approach comes from https://github.com/rsinger/LinkedMARCCodes)
