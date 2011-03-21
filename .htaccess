@@ -1,0 +1,8 @@
+
+Options -MultiViews
+#Options -FollowSymLinks
+Options -Indexes
+
+RewriteEngine on
+
+RewriteRule .*  index.php [L]
