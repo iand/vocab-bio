@@ -32,6 +32,7 @@
     <skos:changeNote rdf:value="Batch of revisions based on community feedback" dc:date="2010-05-20" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added biography property" dc:date="2010-06-05" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child" dc:date="2010-06-06" dc:creator="Ian Davis"/>
+    <skos:historyNote rdf:value="Added bio:Formation and bio:Disbanding events" dc:date="2011-06-10" dc:creator="Ian Davis"/>
     
 
     <ov:discussionList rdf:resource="http://lists.foaf-project.org/mailman/listinfo/foaf-dev" rdfs:label="FOAF-DEV mailing list"/>    
@@ -114,7 +115,7 @@
 
   <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/IndividualEvent">
     <rdfs:label xml:lang="en">Individual Event</rdfs:label>
-    <rdfs:comment xml:lang="en">A type of event that is principally about a single person. Other agents may be involved but the event is most significant for the principal agent.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A type of event that is principally about a single person, group or organization. Other agents may be involved but the event is most significant for the principal agent.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
     <st:term_status>unstable</st:term_status>
@@ -430,6 +431,7 @@
     <dct:issued>2010-05-03</dct:issued>
   </owl:Class>
 
+
   <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/Graduation">
     <rdfs:label xml:lang="en">Graduation</rdfs:label>
     <rdfs:comment xml:lang="en">The event of a person being awarded educational diplomas or degrees.</rdfs:comment>
@@ -582,6 +584,26 @@
     <st:term_status>unstable</st:term_status>
     <dct:issued>2010-05-03</dct:issued>
   </owl:Class>
+
+
+  <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/Formation">
+    <rdfs:label xml:lang="en">Formation</rdfs:label>
+    <rdfs:comment xml:lang="en">The event of a group or organization coming into being.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/IndividualEvent"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <st:term_status>unstable</st:term_status>
+    <dct:issued>2011-06-10</dct:issued>
+  </owl:Class>
+
+  <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/Disbanding">
+    <rdfs:label xml:lang="en">Disbanding</rdfs:label>
+    <rdfs:comment xml:lang="en">The event of a group or organization being disbanded.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/IndividualEvent"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <st:term_status>unstable</st:term_status>
+    <dct:issued>2011-06-10</dct:issued>
+  </owl:Class>
+
 
 
   <!-- 
