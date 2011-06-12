@@ -33,6 +33,7 @@
     <skos:historyNote rdf:value="Added biography property" dc:date="2010-06-05" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child" dc:date="2010-06-06" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added bio:Formation and bio:Disbanding events" dc:date="2011-06-10" dc:creator="Ian Davis"/>
+    <skos:historyNote rdf:value="Added bio:Performance event" dc:date="2011-06-10" dc:creator="Ian Davis"/>
     
 
     <ov:discussionList rdf:resource="http://lists.foaf-project.org/mailman/listinfo/foaf-dev" rdfs:label="FOAF-DEV mailing list"/>    
@@ -604,6 +605,15 @@
     <dct:issued>2011-06-10</dct:issued>
   </owl:Class>
 
+  <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/Performance">
+    <rdfs:label xml:lang="en">Performance</rdfs:label>
+    <rdfs:comment xml:lang="en">The event of an individual or a group of performers performing. Examples include concerts, plays, recitals, recordings, busking etc.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://purl.org/vocab/bio/0.1/GroupEvent"/>
+    <owl:equivalentClass rdf:resource="http://purl.org/ontology/mo/Performance"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <st:term_status>unstable</st:term_status>
+    <dct:issued>2011-06-12</dct:issued>
+  </owl:Class>
 
 
   <!-- 
