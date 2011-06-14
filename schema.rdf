@@ -17,7 +17,30 @@
     <dc:title xml:lang="en">BIO: A vocabulary for biographical information</dc:title>
     <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-05-10</dc:date>
     <dc:abstract xml:lang="en">This document describes a vocabulary for describing biographical information about people, both living and dead. </dc:abstract>
-    <dc:description xml:lang="en">The BIO schema contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information. The approach taken is to describe a person's life as a series of interconnected key events, around which other information can be woven. This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example the Employment event puts the person being employed as the principal agent in the event rather than the employer. Please see https://github.com/iand/vocab-bio for the master version of this schema.</dc:description>
+    <dc:description rdf:parseType="Literal"><div>
+        
+        <p>The BIO vocabulary contains terms useful for finding out more about people and their backgrounds and has some cross-over into genealogical information. 
+        The approach taken is to describe a person's life as a series of interconnected key events, around which other information can be woven. 
+        This vocabulary defines the event framework and supplies a set of core event types that cover many use cases, but it is expected that it 
+        will be extended in other vocabularies to suit their needs. The intention of this vocabulary is to describe biographical events of people 
+        and this intention carries through to the definitions of the properties and classes which are person-centric rather than neutral. For example 
+        the Employment event puts the person being employed as the principal agent in the event rather than the employer.</p>
+        <p>The BIO vocabulary defines a number of core classes and properties for describing biographical information: </p>
+        <p><figure><img src="/bio/core-classes.png"/><br />Figure: Biography Vocabulary Core Classes (<a href="http://vocab.org/bio/core-classes.png">PNG version</a>, <a href="http://vocab.org/bio/core-classes.svg">SVG version</a>)</figure></p>
+        <p>At its heart the BIO vocabulary is concerned with people, their relationships and the events in their lives. Together these can be
+        used to build up a narrative of a person's life and their interactions with other people, organizations and the world around them. Events bound intervals
+        of time that may be associated with particular relationships between people and groups or organisations. Many different types of life event are
+        defined in this vocabulary including the obvious Birth, Marriage and Death but also Coronation, Performance and even Murder. These events are not intended
+        to be fully comprehensive but are representative of the types of events associated with biographical material. Currently the relationship segment of the
+        vocabulary is underspecified with only a generic Relationship class available. It is envisaged that many types of relationship such as families, employments
+        and ownerships will be specified in the future.</p>
+        <p>The sequence of events and intervals build a timeline of history against which people and their relationships can be placed. The aim is
+        to enable simple forms of genealogical reasoning such as determining whether a child was born out of wedlock or the location of a family
+        given the fact one of their children was attending a particular school. Events are ordered in time by relating them to one another and to abstract
+        intervals of time:</p>
+        <p><figure><img src="/bio/timelines.png"/><br />Figure: Biography Vocabulary Timelines(<a href="http://vocab.org/bio/timelines.png">PNG version</a>, <a href="http://vocab.org/bio/timelines.svg">SVG version</a>)</figure></p>
+        <p>Please see <a href="https://github.com/iand/vocab-bio">https://github.com/iand/vocab-bio</a> for the master version of this vocabulary.</p>
+      </div></dc:description>
     <dc:identifier>http://purl.org/vocab/bio/0.1/schema</dc:identifier>
     <dc:creator><foaf:Person rdf:about="http://iandavis.com/id/me"><foaf:name>Ian Davis</foaf:name></foaf:Person></dc:creator>
     <dc:creator>David Galbraith</dc:creator>
@@ -634,6 +657,22 @@
 
   <!-- 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Relationship classes
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <owl:Class rdf:about="http://purl.org/vocab/bio/0.1/Relationship">
+    <rdfs:label xml:lang="en">Agent Relationship</rdfs:label>
+    <rdfs:comment xml:lang="en">A particular type of connection existing between people, groups or organizations related to or having dealings with each other.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <owl:equivalentClass rdf:resource="http://purl.org/vocab/relationship/Relationship"/>
+    <st:term_status>unstable</st:term_status>
+    <dct:issued>2011-06-14</dct:issued>
+  </owl:Class>
+
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       Properties of a person
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
   -->
@@ -750,7 +789,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
     <rdfs:label xml:lang="en">Father</rdfs:label>
     <rdfs:comment xml:lang="en">The biological father of a person, also known as the genitor.</rdfs:comment>
-    <vann:usageNote rdf:parseType="Literal">Note that this is a strict definition of father that does not non-biological relationships. The <a href="http://purl.org/vocab/relationship">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.</vann:usageNote>
+    <vann:usageNote rdf:parseType="Literal">Note that this is a strict definition of father that does not include non-biological relationships. The <a href="http://purl.org/vocab/relationship">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.</vann:usageNote>
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
@@ -767,7 +806,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty" />
     <rdfs:label xml:lang="en">Mother</rdfs:label>
     <rdfs:comment xml:lang="en">The biological mother of a person, also known as the genetrix.</rdfs:comment>
-    <vann:usageNote rdf:parseType="Literal">Note that this is a strict definition of mother that does not non-biological relationships. The <a href="http://purl.org/vocab/relationship">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.</vann:usageNote>
+    <vann:usageNote rdf:parseType="Literal">Note that this is a strict definition of mother that does not include non-biological relationships. The <a href="http://purl.org/vocab/relationship">Relationship</a> vocabulary may be more suitable for broader types of parent/child relation.</vann:usageNote>
     <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
@@ -1032,16 +1071,51 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:label xml:lang="en">Life Event</rdfs:label>
     <label:plural xml:lang="en">Life Events</label:plural>
-    <rdfs:comment xml:lang="en">An event associated with a person.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:comment xml:lang="en">An event associated with a person, group or organization.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
     <skos:historyNote rdf:value="Made a subproperty of owl:differentFrom" dc:date="2010-05-03" dc:creator="Ian Davis"/>
+    <skos:historyNote rdf:value="Changed domain to foaf:Agent" dc:date="2011-06-14" dc:creator="Ian Davis"/>
     <skos:changeNote rdf:value="Added a plural label" dc:date="2010-05-03" dc:creator="Ian Davis"/>
     <owl:inverseOf rdf:resource="http://purl.org/vocab/bio/0.1/agent"/>
   </rdf:Property>
 
+
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Properties of relationships
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/participant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Participant</rdfs:label>
+    <label:plural xml:lang="en">Participants</label:plural>
+    <rdfs:comment xml:lang="en">A person, group or organization that participates in a relationship for some time.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Relationship"/>
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
+    <owl:equivalentProperty rdf:resource="http://purl.org/vocab/relationship/participant"/>
+    <owl:inverseOf rdf:resource="http://purl.org/vocab/bio/0.1/relationship"/>
+    <dct:issued>2011-06-14</dct:issued>
+  </rdf:Property>
+
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/relationship">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Relationship</rdfs:label>
+    <label:plural xml:lang="en">Relationships</label:plural>
+    <rdfs:comment xml:lang="en">A relationship that a person, group or organization participates in for some time.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Relationship"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
+    <owl:equivalentProperty rdf:resource="http://purl.org/vocab/relationship/participantIn"/>
+    <owl:inverseOf rdf:resource="http://purl.org/vocab/bio/0.1/participant"/>
+    <dct:issued>2011-06-14</dct:issued>
+  </rdf:Property>
 
   <rdf:Bag rdf:about="http://purl.org/vocab/bio/0.1/termgroup1">
     <rdfs:label xml:lang="en">Properties of a person</rdfs:label>

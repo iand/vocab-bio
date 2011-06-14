@@ -4,4 +4,4 @@ Options -Indexes
 
 RewriteEngine on
 
-RewriteRule .*  index.php [L]
+RewriteRule !(\.png|\.svg)  index.php [L]
