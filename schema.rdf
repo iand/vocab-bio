@@ -1117,6 +1117,18 @@
     <dct:issued>2011-06-14</dct:issued>
   </rdf:Property>
 
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:label xml:lang="en">Relationship Interval</rdfs:label>
+    <rdfs:comment xml:lang="en">The interval during which the relationship persists.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Relationship"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Interval"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <st:term_status>unstable</st:term_status>
+    <dct:issued>2010-06-05</dct:issued>
+  </rdf:Property>
+
+
   <rdf:Bag rdf:about="http://purl.org/vocab/bio/0.1/termgroup1">
     <rdfs:label xml:lang="en">Properties of a person</rdfs:label>
     <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/olb" />
