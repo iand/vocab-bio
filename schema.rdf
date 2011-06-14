@@ -53,10 +53,12 @@
     <skos:changeNote rdf:value="Added change history" dc:date="2010-04-20" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Major expansion of properties and classes" dc:date="2010-05-10" dc:creator="Ian Davis"/>
     <skos:changeNote rdf:value="Batch of revisions based on community feedback" dc:date="2010-05-20" dc:creator="Ian Davis"/>
+    <skos:changeNote rdf:value="Expanded description and added diagrams" dc:date="2011-06-14" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added biography property" dc:date="2010-06-05" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added subproperty and equivalent property relations for bio:father, bio:mother and bio:child" dc:date="2010-06-06" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added bio:Formation and bio:Disbanding events" dc:date="2011-06-10" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added bio:Performance event" dc:date="2011-06-10" dc:creator="Ian Davis"/>
+    <skos:historyNote rdf:value="Added bio:Relationship class and properties" dc:date="2011-06-14" dc:creator="Ian Davis"/>
     
 
     <ov:discussionList rdf:resource="http://lists.foaf-project.org/mailman/listinfo/foaf-dev" rdfs:label="FOAF-DEV mailing list"/>    
