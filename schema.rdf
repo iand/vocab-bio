@@ -915,8 +915,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:label xml:lang="en">Initiating Event</rdfs:label>
     <label:plural xml:lang="en">Initiating Event</label:plural>
-    <rdfs:comment xml:lang="en">An event that marks the start of an interval. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Interval"/>
+    <rdfs:comment xml:lang="en">An event that marks the start of an interval and/or relationship. The event contributes to and/or causes of the state of affairs that hold during the interval. For example a period of study may be initiated by an Enrolment event.</rdfs:comment>
     <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
@@ -927,8 +926,7 @@
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
     <rdfs:label xml:lang="en">Concluding Event</rdfs:label>
     <label:plural xml:lang="en">Concluding Event</label:plural>
-    <rdfs:comment xml:lang="en">An event that marks the end of an interval. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://purl.org/vocab/bio/0.1/Interval"/>
+    <rdfs:comment xml:lang="en">An event that marks the end of an interval and/or relationship. The event changes of the state of affairs that held during the interval. For example a period of study may be concluded by a Graduation event.</rdfs:comment>
     <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Event"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
     <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
