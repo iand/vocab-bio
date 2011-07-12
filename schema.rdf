@@ -59,6 +59,7 @@
     <skos:historyNote rdf:value="Added bio:Formation and bio:Disbanding events" dc:date="2011-06-10" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added bio:Performance event" dc:date="2011-06-10" dc:creator="Ian Davis"/>
     <skos:historyNote rdf:value="Added bio:Relationship class and properties" dc:date="2011-06-14" dc:creator="Ian Davis"/>
+    <skos:historyNote rdf:value="Added properties for Birth and Death Event types, motivated by JSON serialisations of RDF" dc:date="2011-06-14" dc:creator="Alexandre Passant"/>
     
 
     <ov:discussionList rdf:resource="http://lists.foaf-project.org/mailman/listinfo/foaf-dev" rdfs:label="FOAF-DEV mailing list"/>    
@@ -1082,7 +1083,38 @@
     <owl:inverseOf rdf:resource="http://purl.org/vocab/bio/0.1/agent"/>
   </rdf:Property>
 
+  <!-- 
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      Subproperties of bio:event
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+  
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/birth">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/bio/0.1/event" />
+    <rdfs:label xml:lang="en">Birth Event</rdfs:label>
+    <label:plural xml:lang="en">Birth Events</label:plural>
+    <rdfs:comment xml:lang="en">An birth event associated with a person, group or organization.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Birth"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
+    <skos:historyNote rdf:value="Proposed addition of the property" dc:date="2011-07-12" dc:creator="Alexandre Passant"/>
+  </rdf:Property>
 
+  <rdf:Property rdf:about="http://purl.org/vocab/bio/0.1/death">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty" />
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/vocab/bio/0.1/event" />    
+    <rdfs:label xml:lang="en">Death Event</rdfs:label>
+    <label:plural xml:lang="en">Death Events</label:plural>
+    <rdfs:comment xml:lang="en">An death event associated with a person, group or organization.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:range rdf:resource="http://purl.org/vocab/bio/0.1/Death"/>
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/vocab/bio/0.1/"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#differentFrom"/>
+    <skos:historyNote rdf:value="Proposed addition of the property" dc:date="2011-07-12" dc:creator="Alexandre Passant"/>
+  </rdf:Property>
+    
   <!-- 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       Properties of relationships
@@ -1138,6 +1170,8 @@
     <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/mother" />
     <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/child" />
     <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/event" />
+    <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/birth" />
+    <rdf:li rdf:resource="http://purl.org/vocab/bio/0.1/death" />
   </rdf:Bag>
 
 
@@ -1227,7 +1261,9 @@ _:henryviii
   ; bio:father _:henryvii
   ; bio:mother _:elizplantagenet
   ; bio:child _:child1, _:child2, _:child3, _:child4, _:child5, _:child6, _:child7, _:child8
-  ; bio:event _:birth, _:death, _:burial, _:accession, _:coronation, _:marriage1
+  ; bio:birth _:birth
+  ; bio:death _:death
+  ; bio:event _:burial, _:accession, _:coronation, _:marriage1
             , _:marriage2, _:marriage3, _:marriage4, _:marriage5, _:marriage6
   .
 
