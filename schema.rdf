@@ -1615,14 +1615,14 @@ _:marriage5-interval
   a bio:Interval
   ; rdfs:label "The period of time during which Henry VIII and Catherine Howard were married"
   ; bio:initiatingEvent _:marriage5
-  ; bio:terminatingEvent _:cathhoward-death
+  ; bio:concludingEvent _:cathhoward-death
   .
 
 _:marriage6-interval
   a bio:Interval
   ; rdfs:label "The period of time during which Henry VIII and Catherine Parr were married"
   ; bio:initiatingEvent _:marriage6
-  ; bio:terminatingEvent _:henryviii-death
+  ; bio:concludingEvent _:henryviii-death
   .
 ]]></code></pre>
        </rdfs:comment>
