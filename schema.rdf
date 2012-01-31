@@ -1346,7 +1346,7 @@ _:annulment1
 
 _:catharagon
   a foaf:Person
-  ; foaf:name "Anne Boleyn"
+  ; foaf:name "Catherine of Aragon"
   ; bio:child _:child1, _:child2, _:child3, _:child4, _:child5
   ; bio:event _:marriage1, _:annulment1
   .
